@@ -13,6 +13,12 @@ config:
         username: ""
         password: ""
       bypassProxy: ""
+
+request:
+  auth:
+    type: basic
+    username: "{{BasicAuth_Username}}"
+    password: "{{BasicAuth_Password}}"
 bundled: false
 extensions:
   bruno:

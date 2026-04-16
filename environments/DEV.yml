@@ -1,0 +1,10 @@
+name: DEV
+variables:
+  - name: BaseUrl
+    value: https://s4-dev-api.clarebout.com
+  - name: BasicAuth_Username
+    value: OUT_REMOTE
+  - secret: true
+    name: BasicAuth_Password
+  - secret: true
+    name: X-CSRF-Token
