@@ -5,11 +5,164 @@ info:
 
 http:
   method: POST
-  url: BaseUrl/sap/opu/odata/sap/API_PRODUCT_SRV/A_Product?sap-language=en
+  url: "{{BaseUrl}}/sap/opu/odata/sap/API_PRODUCT_SRV/A_Product?sap-language=en"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: X-CSRF-Token
+      value: "{{X-CSRF-Token}}"
   params:
     - name: sap-language
       value: en
       type: query
+  body:
+    type: json
+    data: |-
+      //Example body, change this body to test different things
+      {
+          "Product": "13271",
+          "CrossPlantStatus": "IO",
+          "CrossPlantStatusValidityDate": "/Date(1769565600000)/",
+          "BaseUnit": "CS",
+          "WeightUnit": "KG",
+          "GrossWeight": "10.342",
+          "NetWeight": "10",
+          "ProductGroup": "GP-101020",
+          "IsBatchManagementRequired": true,
+          "Division": "01",
+          "ItemCategoryGroup": "NORM",
+          "VolumeUnit": "M3",
+          "to_SalesDelivery": {
+              "results": [
+                  {
+                      "Product": "13271",
+                      "ProductSalesOrg": "S020",
+                      "ProductDistributionChnl": "01",
+                      "ItemCategoryGroup": "NORM",
+                      "AccountDetnProductGroup": "01",
+                      "FirstSalesSpecProductGroup": "BON",
+                      "ProductSalesStatus": "IO",
+                      "ProductSalesStatusValidityDate": "/Date(1769565600000)/",
+                      "LogisticsStatisticsGroup": "1",
+                      "SupplyingPlant": "P200"
+                  }
+              ]
+          },
+          "to_ProductSalesTax": {
+              "results": [
+                  {
+                      "Product": "13271",
+                      "Country": "AT",
+                      "TaxCategory": "MWST",
+                      "TaxClassification": "3"
+                  },
+                  {
+                      "Product": "13271",
+                      "Country": "BE",
+                      "TaxCategory": "MWST",
+                      "TaxClassification": "3"
+                  },
+                  {
+                      "Product": "13271",
+                      "Country": "DE",
+                      "TaxCategory": "MWST",
+                      "TaxClassification": "3"
+                  },
+                  {
+                      "Product": "13271",
+                      "Country": "FR",
+                      "TaxCategory": "MWST",
+                      "TaxClassification": "3"
+                  },
+                  {
+                      "Product": "13271",
+                      "Country": "GB",
+                      "TaxCategory": "MWST",
+                      "TaxClassification": "0"
+                  }
+              ]
+          },
+          "to_ProductUnitsOfMeasure": {
+              "results": [
+                  {
+                      "Product": "13271",
+                      "AlternativeUnit": "CS",
+                      "QuantityNumerator": "1",
+                      "QuantityDenominator": "1",
+                      "VolumeUnit": "M3",
+                      "GrossWeight": "10.342",
+                      "WeightUnit": "KG",
+                      "BaseUnit": "CS",
+                      "to_InternationalArticleNumber": {
+                          "results": [
+                              {
+                                  "Product": "13271",
+                                  "AlternativeUnit": "CS",
+                                  "ProductStandardID": "18480010005292",
+                                  "IsMainGlobalTradeItemNumber": true
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "Product": "13271",
+                      "AlternativeUnit": "CU",
+                      "QuantityNumerator": "1",
+                      "QuantityDenominator": "4",
+                      "VolumeUnit": "M3",
+                      "GrossWeight": "10.342",
+                      "WeightUnit": "KG",
+                      "BaseUnit": "CS",
+                      "to_InternationalArticleNumber": {
+                          "results": [
+                              {
+                                  "Product": "13271",
+                                  "AlternativeUnit": "CU",
+                                  "ProductStandardID": "8480010005295",
+                                  "IsMainGlobalTradeItemNumber": true
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "Product": "13271",
+                      "AlternativeUnit": "KG",
+                      "QuantityNumerator": "1",
+                      "QuantityDenominator": "4",
+                      "VolumeUnit": "M3",
+                      "GrossWeight": "10.342",
+                      "WeightUnit": "KG",
+                      "BaseUnit": "CS"
+                  },
+                  {
+                      "Product": "13271",
+                      "AlternativeUnit": "LAG",
+                      "QuantityNumerator": "9",
+                      "QuantityDenominator": "1",
+                      "VolumeUnit": "M3",
+                      "GrossWeight": "10.342",
+                      "WeightUnit": "KG",
+                      "BaseUnit": "CS"
+                  },
+                  {
+                      "Product": "13271",
+                      "AlternativeUnit": "PAL",
+                      "QuantityNumerator": "72",
+                      "QuantityDenominator": "1",
+                      "VolumeUnit": "M3",
+                      "GrossWeight": "10.342",
+                      "WeightUnit": "KG",
+                      "BaseUnit": "CS"
+                  }
+              ]
+          },
+          "to_ProductSales": {
+              "Product": "13271",
+              "SalesStatus": "IO",
+              "SalesStatusValidityDate": "/Date(1769609755498)/",
+              "TransportationGroup": "0001"
+          }
+      }
   auth: inherit
 
 settings:
