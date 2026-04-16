@@ -1,0 +1,30 @@
+info:
+  name: Token
+  type: http
+  seq: 1
+
+http:
+  method: HEAD
+  url: "{{BaseUrl}}/sap/opu/odata/sap/Z_MATERIAL_CREATE_SRV/HeadDataSet?sap-language=en"
+  headers:
+    - name: X-CSRF-Token
+      value: fetch
+  params:
+    - name: sap-language
+      value: en
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const csrfToken = res.headers['x-csrf-token'];
+
+        bru.setEnvVar('X-CSRF-Token', csrfToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

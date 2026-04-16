@@ -1,0 +1,134 @@
+info:
+  name: Material number
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{BaseUrl}}/sap/opu/odata/sap/Z_MATERIAL_CREATE_SRV/HeadDataSet?sap-language=en"
+  headers:
+    - name: X-CSRF-Token
+      value: "{{X-CSRF_Token}}"
+    - name: Accept
+      value: application/json
+  params:
+    - name: sap-language
+      value: en
+      type: query
+  body:
+    type: json
+    data: |-
+      //Most data is from the MARA table
+      {
+          //"Material": "13286", //only fill in the Material(number) when trying to update
+          "IndSector": "F",
+          "MatlType": "FERT", //change this field to the materialtype you want to create
+          "BasicView": true,
+          "SalesView": true,
+          "PurchaseView": true,
+          "MrpView": true,
+          "ForecastView": true,
+          "WorkSchedView": true,
+          "PrtView": true,
+          "StorageView": true,
+          "WarehouseView": true,
+          "QualityView": true,
+          "AccountView": true,
+          "CostView": true,
+          "ClientData": {
+              //Mandatory fields
+              "BaseUom": "KG",
+              "UnitOfWt": "KG",
+              "MatlGroup": "GP-101021",
+
+              //Basic Data 1 - HALB
+              "OldMatNo": "6000005",
+              "PurStatus": "AC",
+              "ParEff": false,
+              "Extmatlgrp": "GP-201021",
+              "ProdHier": "PFZBB1E3L100ZZ99GN",
+              "ItemCat": "NORM",
+              "PlRefMat": "V_620_UK",
+              "MatGrpSm": "Y001",
+
+              //Basic Data 2 - HALB
+              "CadId": false,
+              "EnvtRlvt": false,
+              "Looseorliq": false,
+              "HighVisc": false,
+              "ConfigurableMaterial": false, 
+
+              //Sales General Data - HALB
+              "BatchMgmt": true,
+              "HazMatNo": "",
+
+              //Plant Data Storage
+              "PeriodIndExpirationDate": "M",
+
+              //Purchasing
+              "PurValkey": "3"
+
+          },
+          "ClientDataX": {
+              //Mandatory fields
+              "BaseUom": "X",
+              "MatlGroup": "X",
+              "UnitOfWt": "X",
+
+              //Basic Data 1 - HALB
+              "OldMatNo": "X",
+              "PurStatus": "X",
+              "ParEff": "X",
+              "Extmatlgrp": "X",
+              "ProdHier": "X",
+              "ItemCat": "X",
+              "PlRefMat": "X",
+              "MatGrpSm": "X",
+
+              //Basic Data 2 - HALB
+              "CadId": "X",
+              "EnvtRlvt": "X",
+              "Looseorliq": "X",
+              "HighVisc": "X",
+              "ConfigurableMaterial": "X",
+
+              //Sales General Data - HALB
+              "BatchMgmt": "X",
+
+              //Plant Data Storage
+              "PeriodIndExpirationDate": "X",
+
+              //Purchasing
+              "PurValkey": "X"
+          },
+          "MaterialDescr": [
+              {
+                  "Langu": "EN",
+                  "MatlDesc": "Test"
+              },
+              {
+                  "Langu": "DE",
+                  "MatlDesc": "Test"
+              },
+              {
+                  "Langu": "ES",
+                  "MatlDesc": "Test"
+              }
+          ],
+          "Return": {
+              "Id": " ",
+              "Number": " "
+          }
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: X-CSRF_Token
+      value: pJf-cb3RCQYfb-W6C1DZZw==
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
