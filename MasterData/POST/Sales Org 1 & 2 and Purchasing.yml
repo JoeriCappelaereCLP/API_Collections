@@ -1,0 +1,19 @@
+info:
+  name: Sales Org 1 & 2 and Purchasing
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: BaseUrl/sap/opu/odata/sap/API_PRODUCT_SRV/A_Product?sap-language=en
+  params:
+    - name: sap-language
+      value: en
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
