@@ -1,0 +1,10 @@
+name: QAS
+variables:
+  - name: BaseUrl
+    value: https://s4-qas-api.clarebout.com
+  - name: BasicAuth_Username
+    value: OUT_REMOTE
+  - secret: true
+    name: BasicAuth_Password
+  - secret: true
+    name: X-CSRF-Token
